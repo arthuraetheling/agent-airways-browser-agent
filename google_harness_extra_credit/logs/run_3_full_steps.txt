@@ -1,0 +1,58 @@
+ 1  ok   {"action":"detect_stage","argument":{}}
+      -> The search screen is visible.
+ 2  ok   {"action":"select_option","argument":{"field":"from","value":"DCA"}}
+      -> The from dropdown now shows DCA (read back from the page).
+ 3  ok   {"action":"select_option","argument":{"field":"to","value":"BOS"}}
+      -> The to dropdown now shows BOS (read back from the page).
+ 4  ok   {"action":"fill_text","argument":{"field":"departure_date","value":"2026-11-12"}}
+      -> Field filled and exact value verified.
+ 5  ok   {"action":"click_step_button","argument":{"button":"search_flights"}}
+      -> Clicked search_flights. The next screen #resultsStage is now visible.
+ 6  FAIL  {"action":"list_flights","argument":{}}
+      -> Flight results are not ready. Search for flights first.
+ 7  ok   {"action":"wait_for_flight_results","argument":{"timeout_seconds":5}}
+      -> Flight results are visible.
+ 8  ok   {"action":"list_flights","argument":{}}
+      -> Read 4 visible flight cards.
+ 9  ok   {"action":"choose_flight","argument":{"flight_id":"AA101"}}
+      -> Chose AA101. Seat selection is open: Selected AA101: DCA to BOS, departing 8:10 AM.
+10  ok   {"action":"list_seats","argument":{}}
+      -> Read 30 seats.
+11  ok   {"action":"select_seat","argument":{"seat":"1A"}}
+      -> The browser confirms seat 1A is selected and Continue is enabled.
+12  FAIL  {"action":"click_step_button","argument":{"button":"continue_to_review"}}
+      -> The continue_to_review button is not visible on this screen, so it was not clicked.
+13  ok   {"action":"detect_stage","argument":{}}
+      -> The seat screen is visible.
+14  ok   {"action":"list_interactive_elements","argument":{}}
+      -> Found 32 visible controls.
+15  ok   {"action":"click_step_button","argument":{"button":"continue_from_seat"}}
+      -> Clicked continue_from_seat. The next screen #passengerStage is now visible.
+16  ok   {"action":"detect_stage","argument":{}}
+      -> The passenger screen is visible.
+17  ok   {"action":"list_interactive_elements","argument":{}}
+      -> Found 6 visible controls.
+18  ok   {"action":"fill_text","argument":{"field":"full_name","value":"Test Traveler"}}
+      -> Field filled and exact value verified.
+19  ok   {"action":"fill_text","argument":{"field":"email","value":"test.traveler@example.com"}}
+      -> Field filled and exact value verified.
+20  ok   {"action":"set_checkbox","argument":{"field":"checked_bag","checked":false}}
+      -> Checkbox 'checked_bag' is now False (read back from the page).
+21  ok   {"action":"set_checkbox","argument":{"field":"priority_boarding","checked":false}}
+      -> Checkbox 'priority_boarding' is now False (read back from the page).
+22  ok   {"action":"click_step_button","argument":{"button":"continue_to_review"}}
+      -> Clicked continue_to_review. The next screen #reviewStage is now visible.
+23  ok   {"action":"detect_stage","argument":{}}
+      -> The review screen is visible.
+24  ok   {"action":"read_review","argument":{}}
+      -> read 9 review fields from the browser
+25  ok   {"action":"check_review_against_goal","argument":{}}
+      -> The review matches the requested reservation.
+26  FAIL  {"action":"confirm_demo_reservation","argument":{}}
+      -> Use set_checkbox for confirm_details first.
+27  ok   {"action":"set_checkbox","argument":{"field":"confirm_details","checked":true}}
+      -> Checkbox 'confirm_details' is now True (read back from the page).
+28  ok   {"action":"confirm_demo_reservation","argument":{}}
+      -> Browser shows 'RESERVATION CONFIRMED' with confirmation code LAB2026.
+29  ok   {"action":"verify_confirmation","argument":{}}
+      -> All confirmation details match the trusted goal.

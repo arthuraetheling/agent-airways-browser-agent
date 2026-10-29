@@ -1,0 +1,80 @@
+{
+  "status": "success",
+  "request": "On the Agent Airways practice site, choose DCA as the departure airport, BOS as the destination, and 2026-11-12 as the departure date. Press Search flights. Stop when the results screen appears.",
+  "trace": [
+    {
+      "step": 1,
+      "model_proposal": "{\"action\":\"fill_text\",\"argument\":{\"field\":\"departure_date\",\"value\":\"2026-11-12\"}}",
+      "tool_result": {
+        "ok": true,
+        "message": "Field filled and exact value verified.",
+        "data": {
+          "field": "departure_date",
+          "requested_value": "2026-11-12",
+          "action_attempted": true,
+          "url": "https://onyourmark.github.io/browser-agent-form/travel/#search",
+          "before_value": "2026-11-05",
+          "actual_value": "2026-11-12"
+        }
+      }
+    },
+    {
+      "step": 2,
+      "model_proposal": "{\"action\":\"select_option\",\"argument\":{\"field\":\"from\",\"value\":\"DCA\"}}",
+      "tool_result": {
+        "ok": true,
+        "message": "The from dropdown now shows DCA (read back from the page).",
+        "data": {
+          "field": "from",
+          "requested": "DCA",
+          "before": "",
+          "allowed_values": [
+            "DCA",
+            "BOS",
+            "JFK",
+            "ORD",
+            "ATL"
+          ],
+          "actual": "DCA"
+        }
+      }
+    },
+    {
+      "step": 3,
+      "model_proposal": "{\"action\":\"select_option\",\"argument\":{\"field\":\"to\",\"value\":\"BOS\"}}",
+      "tool_result": {
+        "ok": true,
+        "message": "The to dropdown now shows BOS (read back from the page).",
+        "data": {
+          "field": "to",
+          "requested": "BOS",
+          "before": "",
+          "allowed_values": [
+            "DCA",
+            "BOS",
+            "JFK",
+            "ORD",
+            "ATL"
+          ],
+          "actual": "BOS"
+        }
+      }
+    },
+    {
+      "step": 4,
+      "model_proposal": "{\"action\":\"click_step_button\",\"argument\":{\"button\":\"search_flights\"}}",
+      "tool_result": {
+        "ok": true,
+        "message": "Clicked search_flights. The next screen #resultsStage is now visible.",
+        "data": {
+          "button": "search_flights",
+          "clicked": true,
+          "stage_before": "#searchStage",
+          "url_before": "https://onyourmark.github.io/browser-agent-form/travel/#search",
+          "stage_after": "#resultsStage",
+          "url_after": "https://onyourmark.github.io/browser-agent-form/travel/#results"
+        }
+      }
+    }
+  ]
+}

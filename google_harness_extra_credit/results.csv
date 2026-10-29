@@ -1,0 +1,6 @@
+run,result,full_status,full_steps,full_failed_tool_results,approval_typed,review_problems,confirmation_code,verify_checks_passed,three_tool_status,three_tool_steps,seconds,exit_code,timed_out,started_at
+1,Failure,step_limit,50,13,(not asked),,,,success,4,44.9,0,False,2026-10-29T13:24:36
+2,Failure,step_limit,50,13,(not asked),,,,success,4,42.4,0,False,2026-10-29T13:25:21
+3,Success,success,29,3,APPROVE,,LAB2026,11/11,success,4,30.8,0,False,2026-10-29T13:26:03
+4,Failure,step_limit,50,13,(not asked),,,,success,4,46.2,0,False,2026-10-29T13:26:34
+5,Failure,step_limit,50,13,(not asked),,,,success,4,43.1,0,False,2026-10-29T13:27:21

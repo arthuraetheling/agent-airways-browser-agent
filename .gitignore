@@ -1,0 +1,4 @@
+# Class tool repository; the program clones it next to itself at run time
+agent-airways-class-browser-agent/
+__pycache__/
+*.pyc
